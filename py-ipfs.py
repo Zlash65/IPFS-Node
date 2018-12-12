@@ -26,7 +26,10 @@ with open('peers_list.txt', 'w') as f:
 		f.write("{0}\n".format(i))
 
 		if not i in peers:
-			output = list(subprocess.check_output(['ipfs', 'bitswap', 'ledger', i]).split('\n'))
+			output = list(subprocess.check_output(['ipfs', 'bitswap', 'ledger', i])
+				.decode('utf-8')
+				.split('\n'))
+
 			output = [d.split(':\t') for d in output]
 			output_dict = {item[0]: item[1] for item in output if len(item) == 2}
 
