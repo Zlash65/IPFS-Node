@@ -18,6 +18,8 @@ publish = subprocess.check_output(['ipfs', 'name', 'publish', file_hash['Hash']]
 print("File uploaded to ipfs node")
 print("View the file at :- https://gateway.ipfs.io/ipfs/{0}".format(file_hash['Hash']))
 
+print("\nCollecting peers data. Please wait for a while")
+
 peer_data = PrettyTable(["Peer", "Bytes Received", "Bytes Sent"])
 
 peers = []
